@@ -1,0 +1,8 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+use_frameworks!
+
+target 'ChristmasLight' do
+    #pod 'SwiftHUEColorPicker', '~> 0.3.0'
+  pod 'Alamofire', '~> 4.0'
+end

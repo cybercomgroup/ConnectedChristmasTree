@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ChristmasLight" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EzE-JQ-x2p">
+                                <rect key="frame" x="0.0" y="687" width="414" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="On" image="On" selectedImage="On" id="OGh-3v-Qgv"/>
+                                    <tabBarItem title="Off" image="Off" id="1jm-iY-5T1"/>
+                                    <tabBarItem title="Random" image="Random" id="gjS-V6-Z50"/>
+                                </items>
+                            </tabBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ADb-5b-lm9">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChristmasTree.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qb4-Eh-TSk">
+                                <rect key="frame" x="142.66666666666669" y="41" width="129.00000000000006" height="129"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Qb4-Eh-TSk" secondAttribute="height" multiplier="129:129" id="VWj-oi-TqO"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evg-Yv-lSf">
+                                <rect key="frame" x="36" y="636" width="341" height="48"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="34"/>
+                                <state key="normal" title="Set Christmas Tree Light">
+                                    <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="5"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="25"/>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="22"/>
+                                </variation>
+                                <connections>
+                                    <action selector="sendRGB:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pRp-bf-wva"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.png" translatesAutoresizingMaskIntoConstraints="NO" id="A61-Wz-Uu0">
+                                <rect key="frame" x="194.66666666666666" y="18" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="Ycd-6k-KCK"/>
+                                    <constraint firstAttribute="height" constant="25" id="hNU-mD-dgv"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.png" translatesAutoresizingMaskIntoConstraints="NO" id="453-4C-Iml">
+                                <rect key="frame" x="333" y="220" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.png" translatesAutoresizingMaskIntoConstraints="NO" id="kS0-bS-Pch">
+                                <rect key="frame" x="49" y="43" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.png" translatesAutoresizingMaskIntoConstraints="NO" id="zae-CE-d1W">
+                                <rect key="frame" x="293" y="27" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.png" translatesAutoresizingMaskIntoConstraints="NO" id="geP-l0-QhL">
+                                <rect key="frame" x="82" y="358" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.png" translatesAutoresizingMaskIntoConstraints="NO" id="XsK-eg-6HC">
+                                <rect key="frame" x="28" y="278" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.png" translatesAutoresizingMaskIntoConstraints="NO" id="hSB-SA-54E">
+                                <rect key="frame" x="260" y="127" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.png" translatesAutoresizingMaskIntoConstraints="NO" id="fCR-4n-bTH">
+                                <rect key="frame" x="266" y="309" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.png" translatesAutoresizingMaskIntoConstraints="NO" id="GsS-uR-Seq">
+                                <rect key="frame" x="50" y="587" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.png" translatesAutoresizingMaskIntoConstraints="NO" id="KHb-PE-yYi">
+                                <rect key="frame" x="16" y="476" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U8i-h9-wfV" userLabel="Vertical Color Picker" customClass="SwiftHUEColorPicker" customModule="ChristmasLight" customModuleProvider="target">
+                                <rect key="frame" x="178" y="183" width="60" height="444"/>
+                                <color key="backgroundColor" red="1" green="0.10984924833396881" blue="0.13954141320390157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="xKC-CM-aJG"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.png" translatesAutoresizingMaskIntoConstraints="NO" id="j4R-v2-4BU">
+                                <rect key="frame" x="64" y="168" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.png" translatesAutoresizingMaskIntoConstraints="NO" id="660-Xy-Sww">
+                                <rect key="frame" x="347" y="514" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3QI-dJ-Y52">
+                                <rect key="frame" x="6" y="20" width="30" height="30"/>
+                                <state key="normal" image="Setting"/>
+                                <connections>
+                                    <action selector="showIpInput:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DI2-7v-bD3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                        </accessibility>
+                        <constraints>
+                            <constraint firstItem="ADb-5b-lm9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="5YE-jo-TYq"/>
+                            <constraint firstItem="A61-Wz-Uu0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5jq-IK-z75"/>
+                            <constraint firstItem="evg-Yv-lSf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="6XF-QS-tgU"/>
+                            <constraint firstItem="Qb4-Eh-TSk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="21" id="7PI-24-E3m"/>
+                            <constraint firstItem="U8i-h9-wfV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="1" id="AFH-ca-ncB"/>
+                            <constraint firstItem="EzE-JQ-x2p" firstAttribute="top" secondItem="ADb-5b-lm9" secondAttribute="bottom" id="Bfz-cA-HR2"/>
+                            <constraint firstItem="EzE-JQ-x2p" firstAttribute="top" secondItem="U8i-h9-wfV" secondAttribute="bottom" constant="60" id="FR0-9K-suC"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="EzE-JQ-x2p" secondAttribute="bottom" id="G7o-Pb-Wsb"/>
+                            <constraint firstItem="EzE-JQ-x2p" firstAttribute="top" secondItem="evg-Yv-lSf" secondAttribute="bottom" constant="3" id="IKa-tR-94O"/>
+                            <constraint firstItem="Qb4-Eh-TSk" firstAttribute="bottom" secondItem="U8i-h9-wfV" secondAttribute="top" constant="-13" id="MjD-vz-o0u"/>
+                            <constraint firstItem="Qb4-Eh-TSk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NFb-6T-JFz"/>
+                            <constraint firstItem="A61-Wz-Uu0" firstAttribute="top" secondItem="ADb-5b-lm9" secondAttribute="top" constant="18" id="SVa-Dl-Wdz"/>
+                            <constraint firstItem="ADb-5b-lm9" firstAttribute="leading" secondItem="3QI-dJ-Y52" secondAttribute="trailing" constant="-36" id="Stw-aR-hZE"/>
+                            <constraint firstItem="EzE-JQ-x2p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Weo-H0-qT7"/>
+                            <constraint firstItem="ADb-5b-lm9" firstAttribute="top" secondItem="3QI-dJ-Y52" secondAttribute="bottom" constant="-50" id="WmJ-LP-L7N"/>
+                            <constraint firstItem="U8i-h9-wfV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="37" id="XqM-hu-TnE"/>
+                            <constraint firstItem="evg-Yv-lSf" firstAttribute="top" secondItem="U8i-h9-wfV" secondAttribute="bottom" constant="9" id="bmc-ds-8Zl"/>
+                            <constraint firstAttribute="bottom" secondItem="evg-Yv-lSf" secondAttribute="bottom" constant="52" id="cie-De-jYm"/>
+                            <constraint firstItem="ADb-5b-lm9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="e0a-FM-VSc"/>
+                            <constraint firstAttribute="trailing" secondItem="ADb-5b-lm9" secondAttribute="trailing" id="k3L-ZX-tha"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="evg-Yv-lSf" secondAttribute="trailing" constant="17" id="ouv-Ri-qXc"/>
+                            <constraint firstAttribute="trailing" secondItem="EzE-JQ-x2p" secondAttribute="trailing" id="uzx-6E-qyy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="christmasTreeIcon" destination="Qb4-Eh-TSk" id="C1U-v0-Vt4"/>
+                        <outlet property="light0" destination="A61-Wz-Uu0" id="B2o-4o-1vx"/>
+                        <outlet property="light11" destination="XsK-eg-6HC" id="fme-rC-WCQ"/>
+                        <outlet property="light12" destination="hSB-SA-54E" id="5SG-Tw-Pz5"/>
+                        <outlet property="light13" destination="fCR-4n-bTH" id="8T6-ge-8PR"/>
+                        <outlet property="light15" destination="660-Xy-Sww" id="rBu-00-Moh"/>
+                        <outlet property="light18" destination="GsS-uR-Seq" id="7Hj-Aw-ck2"/>
+                        <outlet property="light19" destination="KHb-PE-yYi" id="LEZ-5a-png"/>
+                        <outlet property="light3" destination="453-4C-Iml" id="JTM-Wz-XfX"/>
+                        <outlet property="light5" destination="j4R-v2-4BU" id="NA1-TL-KDd"/>
+                        <outlet property="light6" destination="kS0-bS-Pch" id="QY7-G1-bIR"/>
+                        <outlet property="light7" destination="zae-CE-d1W" id="8rD-Ke-JEm"/>
+                        <outlet property="light8" destination="geP-l0-QhL" id="EaZ-bF-TvM"/>
+                        <outlet property="sendButton" destination="evg-Yv-lSf" id="qo9-27-ctS"/>
+                        <outlet property="switchButton" destination="OGh-3v-Qgv" id="zvM-wb-8ey"/>
+                        <outlet property="tabBar" destination="EzE-JQ-x2p" id="eJt-Qo-NDe"/>
+                        <outlet property="verticalColorPicker" destination="U8i-h9-wfV" id="qHc-iX-RLL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133.125" y="408.75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ChristmasTree.png" width="512" height="512"/>
+        <image name="Off" width="30" height="30"/>
+        <image name="On" width="30" height="30"/>
+        <image name="Random" width="30" height="30"/>
+        <image name="Setting" width="30" height="30"/>
+        <image name="background.jpg" width="1024" height="1024"/>
+        <image name="star.png" width="2000" height="1918"/>
+    </resources>
+</document>

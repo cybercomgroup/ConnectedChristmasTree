@@ -13,3 +13,17 @@ hashtag
 You also need to install the libraries blinkstick and tweepy using python pip:
 sudo pip install blinkstick
 sudo pip install tweepy
+
+
+To change the value of the blinkstick you send a tweet containing the hashtag and the color afterwards. Works with both hashtag and people reference.
+#hashtag color
+@person color
+
+E.g:
+#cybercomgbgblinkstick green
+@cybercomgbgblinkstick green
+
+Also works with hex color.
+E.g:
+#cybercomgbgblinkstick #00ff00
+@cybercomgbgblinkstick #00ff00

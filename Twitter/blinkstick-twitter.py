@@ -29,15 +29,28 @@ class MyStreamListener(tweepy.StreamListener):
         str = str.split()  # split the string
 
         # TODO fix list index out of range when just using the hashtag
-        color = str[1]  # setting the color name to the argument coming after the hashtag
-        print color
+        color = str[1].strip()  # setting the color name to the argument coming after the hashtag
+        # print color
 
-        #TODO Add check for RGB values also
+        # Check for RGB values
+        if len(str) >= 4 and str[1].isdigit() and str[2].isdigit() and str[3].isdigit():
+            red = int(str[1])
+            green = int(str[2])
+            blue = int(str[3])
+
+            if red >= 0 and red <= 255 and green >= 0 and green <= 255 and blue >= 0 and blue <= 255:
+                print red, green, blue
+                for bstick in bsticks:
+                    for x in range(0, 32):
+                        bstick.set_color(channel=0, index=x, red=red, green=green, blue=blue)
+                return
+
+
 
         if color == "random":  # this is a bad fix for random, the issue is probably because of char and strings
-            for bstick in bsticks:
-                for x in range(0, 32):
-                    bstick.set_color(channel=0, index=x, name="random")
+             for bstick in bsticks:
+                 for x in range(0, 32):
+                     bstick.set_color(channel=0, index=x, name="random")
         elif color[0] == '#': # When using hex numbers for colors, issue might be if someone writes another hashtag after the one we're listening for
             for bstick in bsticks:
                 for x in range(0, 32):

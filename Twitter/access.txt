@@ -1,0 +1,5 @@
+consumer_key=value
+consumer_key_secret=value
+access_token=value
+access_token_secret=value
+hashtag=value

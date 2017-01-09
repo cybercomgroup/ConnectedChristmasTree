@@ -13,7 +13,7 @@ API_KEY_SECRET = access['consumer_key_secret']
 ACCESS_TOKEN = access['access_token']
 ACCESS_TOKEN_SECRET = access['access_token_secret']
 
-HASHTAG = '#' + access['hashtag']
+HASHTAG = access['hashtag']
 
 bsticks = blinkstick.find_all()
 
@@ -44,8 +44,6 @@ class MyStreamListener(tweepy.StreamListener):
                     for x in range(0, 32):
                         bstick.set_color(channel=0, index=x, red=red, green=green, blue=blue)
                 return
-
-
 
         if color == "random":  # this is a bad fix for random, the issue is probably because of char and strings
              for bstick in bsticks:

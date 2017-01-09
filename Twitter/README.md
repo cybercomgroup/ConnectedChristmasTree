@@ -8,7 +8,7 @@ consumer_key
 consumer_key_secret
 access_token
 access_token_secret
-hashtag
+hashtag (either a normal hashtag or a person, don't forget # or @)
 
 You also need to install the libraries blinkstick and tweepy using python pip:
 sudo pip install blinkstick

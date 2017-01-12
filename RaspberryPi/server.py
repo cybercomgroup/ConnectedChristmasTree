@@ -33,7 +33,7 @@ def change_led_random():
         return 'No blinkstick found'
 
 def cpu_usage():
-    return str(psutil.cpu_percent(interval=1)) + "%"
+    return str(psutil.cpu_percent(interval=1))
 
 
 @app.route('/changecolor', methods=['POST'])
@@ -45,6 +45,7 @@ def change_color_all():
 @app.route('/randomcolor', methods=['GET'])
 def random_color_all():
     return change_led_random()
+
 
 @app.route('/getcpuusage', methods=['GET'])
 def get_cpu_usage():

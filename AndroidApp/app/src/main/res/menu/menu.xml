@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/ip_address"
+          android:title="@string/ip_address"
+          android:icon="@drawable/ip_address"
+          app:showAsAction="always">
+        <!-- "file" submenu -->
+    </item>
+
+    <item android:title="@string/recent_ip_addresses"
+          android:id="@+id/recent_ip_addresses"
+          app:showAsAction="ifRoom">
+    </item>
+
+    <item android:title="@string/help"
+          android:id="@+id/help"
+          app:showAsAction="ifRoom">
+    </item>
+
+</menu>

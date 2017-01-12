@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Christmas Tree</string>
+    <string name="net">Network Connection</string>
+    <string name="ip_address">IP Address</string>
+    <string name="button_on">On</string>
+    <string name="button_off">OFF</string>
+    <string name="help">Help</string>
+    <string name="recent_ip_addresses">Recent IP Addresses</string>
+</resources>

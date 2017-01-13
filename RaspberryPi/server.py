@@ -10,8 +10,8 @@ def change_led_color(colors):
     if len(bsticks) > 0:
         print 'Changing colors to: ', colors[0:3]
         for bstick in bsticks:
-            ledCount = bstick.get_led_count()
-            for x in range(0, ledCount):
+            led_count = bstick.get_led_count()
+            for x in range(0, led_count):
                 bstick.set_color(channel=0, index=x, red=int(colors[0]), green=int(colors[1]), blue=int(colors[2]))
         return 'ok'
     else:
@@ -24,16 +24,23 @@ def change_led_random():
     if len(bsticks) > 0:
         print 'Setting a random color to all leds'
         for bstick in bsticks:
-            ledCount = bstick.get_led_count()
-            for x in range(0, ledCount):
+            led_count = bstick.get_led_count()
+            for x in range(0, led_count):
                 bstick.set_color(channel=0, index=x, name="random")
         return 'ok'
     else:
         print 'No blinkstick found'
         return 'No blinkstick found'
 
+
 def cpu_usage():
     return str(psutil.cpu_percent(interval=1))
+
+
+def connections():
+    p = psutil.Process()
+    count = str(len(p.connections(kind='all')))
+    return count
 
 
 @app.route('/changecolor', methods=['POST'])
@@ -50,6 +57,11 @@ def random_color_all():
 @app.route('/getcpuusage', methods=['GET'])
 def get_cpu_usage():
     return cpu_usage()
+
+
+@app.route('/getconnections', methods=['GET'])
+def get_connections():
+    return connections()
 
 
 if __name__ == '__main__':

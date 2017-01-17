@@ -43,7 +43,7 @@ def spaz_out():
         while(is_looping):
             for bstick in bsticks:
                 led_count = bstick.get_led_count()
-                random_led = random.randint(0, 32)
+                random_led = random.randint(0, led_count)
                 bstick.set_color(channel=0, index=random_led, name="random")
         return 'ok'
     else:

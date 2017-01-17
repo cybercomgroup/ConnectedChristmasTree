@@ -1,54 +1,57 @@
 from blinkstick import blinkstick
 from flask import Flask, jsonify, request
-import threading
 import psutil
 import random
+import time
 
 app = Flask(__name__)
 
-is_looping = True
+spazing_out = True
 
-def change_led_color(colors):
-    bsticks = blinkstick.find_all()
-    if len(bsticks) > 0:
+class Main(blinkstick.BlinkStickPro):
+    def change_led_color(self, colors):
+        self.clear()
         print 'Changing colors to: ', colors[0:3]
-        for bstick in bsticks:
-            led_count = bstick.get_led_count()
-            for x in range(0, led_count):
-                bstick.set_color(channel=0, index=x, red=int(colors[0]), green=int(colors[1]), blue=int(colors[2]))
+        for x in range(0, self.r_led_count):
+            self.set_color_or(x, int(colors[0]), int(colors[1]), int(colors[2]))
+        self.send_data_all()
+        time.sleep(0.1)
         return 'ok'
-    else:
-        print 'No blinkstick found'
-        return 'No blinkstick found'
 
-
-def change_led_random():
-    bsticks = blinkstick.find_all()
-    if len(bsticks) > 0:
+    def change_led_random(self):
+        self.clear()
         print 'Setting a random color to all leds'
-        for bstick in bsticks:
-            led_count = bstick.get_led_count()
-            for x in range(0, led_count):
-                bstick.set_color(channel=0, index=x, name="random")
-        return 'ok'
-    else:
-        print 'No blinkstick found'
-        return 'No blinkstick found'
+        for x in range(0, self.r_led_count):
+            rr = random.randint(0, 255)
+            rg = random.randint(0, 255)
+            rb = random.randint(0, 255)
+            self.set_color_or(x, rr, rb, rg)
 
-
-def spaz_out():
-    bsticks = blinkstick.find_all()
-    if len(bsticks) > 0:
-        print 'Setting a random color to all leds'
-        while(is_looping):
-            for bstick in bsticks:
-                led_count = bstick.get_led_count()
-                random_led = random.randint(0, led_count)
-                bstick.set_color(channel=0, index=random_led, name="random")
+        self.send_data_all()
+        time.sleep(0.1)
         return 'ok'
-    else:
-        print 'No blinkstick found'
-        return 'No blinkstick found'
+
+    def spaz_out(self): # Needs a bit of update
+        print 'Setting a random color to all leds on random index'
+        while spazing_out:
+            rr = random.randint(0, 255)
+            rg = random.randint(0, 255)
+            rb = random.randint(0, 255)
+            random_led = random.randint(0, self.r_led_count)
+
+            self.set_color_or(random_led, rr, rb, rg)
+            self.send_data_all()
+            time.sleep(0.1)
+        return 'ok'
+
+    def set_color_or(self, x, r, g, b):
+        cr, cg, cb = self.get_color(0, x)
+        self.set_color(0, x, int(r) | int(cr), int(g) | int(cg), int(b) | int(cb))
+
+bstick = Main(r_led_count=32)
+if not bstick.connect():
+    print "No blinkstick found"
+    exit()
 
 
 def cpu_usage():
@@ -63,41 +66,40 @@ def connections():
 
 
 @app.route('/changecolor', methods=['POST'])
-
 def change_color_all():
-    global is_looping
-    is_looping = False
+    global spazing_out
+    spazing_out = False
     payload = request.get_json()
-    return change_led_color(payload['rgb'])
+    return bstick.change_led_color(payload['rgb'])
 
 
 @app.route('/randomcolor', methods=['POST'])
 def random_color_all():
-    global is_looping
-    is_looping = False
-    return change_led_random()
+    global spazing_out
+    spazing_out = False
+    return bstick.change_led_random()
 
 
 @app.route('/getcpuusage', methods=['POST'])
 def get_cpu_usage():
-    global is_looping
-    is_looping = False
+    global spazing_out
+    spazing_out = False
     return cpu_usage()
 
 
 @app.route('/getconnections', methods=['POST'])
 def get_connections():
-    global is_looping
-    is_looping = False
+    global spazing_out
+    spazing_out = False
     return connections()
 
 
 @app.route('/randomblink', methods=['POST'])
 def spazing_out():
-    global is_looping
-    is_looping = True
-    return spaz_out()
-
+    global spazing_out
+    spazing_out = True
+    return bstick.spaz_out()
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', threaded=True)
+

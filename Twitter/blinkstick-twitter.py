@@ -1,5 +1,6 @@
-from blinkstick import blinkstick
+from Bstick import Bstick
 import tweepy
+import sys
 
 # Read values from access.txt to use with accessing Twitter stream
 access = dict()
@@ -15,7 +16,12 @@ ACCESS_TOKEN_SECRET = access['access_token_secret']
 
 HASHTAG = access['hashtag']
 
-bsticks = blinkstick.find_all()
+bstick = Bstick.Stick(r_led_count=32, max_rgb_value=255)
+if not bstick.connect():
+    print "no Blinkstick found"
+    sys.exit()
+else:
+    print "Found Blinkstick"
 
 class MyStreamListener(tweepy.StreamListener):
     def on_status(self, status):  # When a status has been posted with certain keywords
@@ -37,29 +43,19 @@ class MyStreamListener(tweepy.StreamListener):
             red = int(str[1])
             green = int(str[2])
             blue = int(str[3])
-
-            if red >= 0 and red <= 255 and green >= 0 and green <= 255 and blue >= 0 and blue <= 255:
-                print red, green, blue
-                for bstick in bsticks:
-                    for x in range(0, 32):
-                        bstick.set_color(channel=0, index=x, red=red, green=green, blue=blue)
-                return
+            colors = [red, green, blue]
+            bstick.change_led_color(colors)
+            return
 
         color = str[1].strip()  # setting the color name to the argument coming after the hashtag
         print color
 
         if color == "random":  # this is a bad fix for random, the issue is probably because of char and strings
-             for bstick in bsticks:
-                 for x in range(0, 32):
-                     bstick.set_color(channel=0, index=x, name="random")
+            bstick.change_led_random()
         elif color[0] == '#': # When using hex numbers for colors, issue might be if someone writes another hashtag after the one we're listening for
-            for bstick in bsticks:
-                for x in range(0, 32):
-                    bstick.set_color(channel=0, index=x, hex=color)
+            bstick.change_color_hex(color)
         else:
-            for bstick in bsticks:
-                for x in range(0, 32):
-                    bstick.set_color(channel=0, index=x, name=color)
+            bstick.change_color_name(color)
 
     def on_error(self, status_code):
         print status_code
